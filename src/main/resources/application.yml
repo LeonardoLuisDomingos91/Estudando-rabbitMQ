@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: rabbit-gradle
+  cloud:
+    stream:
+      rabbit:
+        bindings:
+          output:
+            producer:
+              bindingRoutingKey: "TO-QUEUE1"
+              routingKeyExpression: '''TO-QUEUE1'''
+              exchangeType: direct
+              bindQueue: true
+          input:
+            consumer:
+              bindingRoutingKey: "TO-QUEUE1"
+              bindQueue: true
+      bindings:
+        output:
+          destination: FILA-EMPLOYEE
+          producer:
+            requiredGroups: DESTINO
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: kamisama123
+
+
+
+
+
