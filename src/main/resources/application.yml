@@ -7,13 +7,13 @@ spring:
         bindings:
           output:
             producer:
-              bindingRoutingKey: "TO-QUEUE1"
-              routingKeyExpression: '''TO-QUEUE1'''
+              bindingRoutingKey: "PARA-FILA-1"
+              routingKeyExpression: '''PARA-FILA-1'''
               exchangeType: direct
               bindQueue: true
           input:
             consumer:
-              bindingRoutingKey: "TO-QUEUE1"
+              bindingRoutingKey: "PARA-FILA-1"
               bindQueue: true
       bindings:
         output:
