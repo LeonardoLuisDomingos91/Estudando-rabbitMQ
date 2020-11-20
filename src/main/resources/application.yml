@@ -13,6 +13,8 @@ spring:
               bindQueue: true
           input:
             consumer:
+              autoBindDlq: true
+              group: messageInputSubscriber
               bindingRoutingKey: "PARA-FILA-1"
               bindQueue: true
       bindings:

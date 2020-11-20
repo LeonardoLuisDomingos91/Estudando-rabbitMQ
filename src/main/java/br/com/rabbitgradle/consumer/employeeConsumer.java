@@ -10,7 +10,11 @@ import java.util.logging.Logger;
 public class employeeConsumer {
 
     @StreamListener("input")
-    public void listen(Employee employee) {
-        System.out.println("consumiu " + employee);
+    public void listen(Employee employee) throws Exception {
+        System.out.println("MSG: " + employee);
+
+        if(employee.getLastName().equals(null))
+            throw new Exception("msg rejeitada");
+
     }
 }
