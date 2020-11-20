@@ -20,6 +20,9 @@ spring:
           destination: FILA-EMPLOYEE
           producer:
             requiredGroups: DESTINO
+        input:
+          destination: FILA-EMPLOYEE
+          group: DESTINO
   rabbitmq:
     host: localhost
     port: 5672
