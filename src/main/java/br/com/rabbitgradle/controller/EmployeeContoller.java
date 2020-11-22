@@ -15,11 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("employee")
 public class EmployeeContoller {
 
-    @Autowired
-    private EmployeeChannel employeeChannel;
+
+    private final EmployeeChannel employeeChannel;
+
+    public EmployeeContoller(EmployeeChannel employeeChannel) {
+        this.employeeChannel = employeeChannel;
+    }
 
     @PostMapping("/output")
-    public ResponseEntity<?> salvandoEmployee(@RequestBody Employee employee){
+    final public ResponseEntity<?> salvandoEmployee(@RequestBody Employee employee){
         Message<Employee> messageEmployee = MessageBuilder
                 .withPayload(employee)
                 .build();

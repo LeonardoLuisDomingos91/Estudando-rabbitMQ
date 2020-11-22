@@ -7,7 +7,7 @@ spring:
         bindings:
           output:
             producer:
-              bindingRoutingKey: "PARA-FILA-1"
+              bindingRoutingKey: "REGISTER-EMPLOYEE-NAME"
               routingKeyExpression: '''PARA-FILA-1'''
               exchangeType: direct
               bindQueue: true
@@ -15,15 +15,15 @@ spring:
             consumer:
               autoBindDlq: true
               group: messageInputSubscriber
-              bindingRoutingKey: "PARA-FILA-1"
+              bindingRoutingKey: "REGISTER-EMPLOYEE-NAME"
               bindQueue: true
       bindings:
         output:
-          destination: FILA-EMPLOYEE
+          destination: QUEUE-REGISTER-EMPLOYEE-NAME
           producer:
             requiredGroups: DESTINO
         input:
-          destination: FILA-EMPLOYEE
+          destination: QUEUE-REGISTER-EMPLOYEE-NAME
           group: DESTINO
   rabbitmq:
     host: localhost
