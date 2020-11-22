@@ -1,19 +1,19 @@
 package br.com.rabbitgradle.consumer;
 
 import br.com.rabbitgradle.domain.Employee;
-import br.com.rabbitgradle.exception.FuncionarioCadastroException;
+import br.com.rabbitgradle.exception.EmployeeRegistrationException;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class employeeConsumer {
+public class EmployeeConsumer {
 
     @StreamListener("input")
-    final public void listen(Employee employee) throws Exception {
+    final public void listen(Employee employee) {
         System.out.println("MSG: " + employee);
 
-        if(employee.getLastName().isEmpty()) {
-            throw new FuncionarioCadastroException("msg rejeitada");
+        if(employee.getLastName() == null) {
+            throw new EmployeeRegistrationException("msg rejeitada");
         }
     }
 }
