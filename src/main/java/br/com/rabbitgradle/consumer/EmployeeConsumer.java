@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class EmployeeConsumer {
 
     @StreamListener("input")
-    final public void listen(Employee employee) {
+    public final void listen(Employee employee) {
         System.out.println("MSG: " + employee);
 
         if(employee.getLastName() == null) {
