@@ -23,7 +23,7 @@ public class EmployeeContoller {
     }
 
     @PostMapping("/output")
-    public final ResponseEntity<?> saveEmployee(@RequestBody Employee employee){
+    public ResponseEntity<?> saveEmployee(@RequestBody final Employee employee){
         Message<Employee> messageEmployee = MessageBuilder
                 .withPayload(employee)
                 .build();
