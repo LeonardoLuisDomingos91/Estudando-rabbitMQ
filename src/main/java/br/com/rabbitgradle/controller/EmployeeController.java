@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("employee")
-public class EmployeeContoller {
+public class EmployeeController {
 
 
     private final EmployeeChannel employeeChannel;
 
-    public EmployeeContoller(EmployeeChannel employeeChannel) {
+    public EmployeeController(EmployeeChannel employeeChannel) {
         this.employeeChannel = employeeChannel;
     }
 
